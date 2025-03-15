@@ -1,3 +1,4 @@
+import { LinkIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -13,7 +14,7 @@ function Navbar() {
       px-4"
       >
         <Link
-          href="#"
+          href="/"
           className="
           text-2xl font-bold"
         >
@@ -22,29 +23,38 @@ function Navbar() {
 
         <ul className="flex  space-x-4">
           <li>
-            <a
-              href="#"
+            <Link
+              href="/interviews"
               className="  underline underline-offset-4 hover:text-green-500 font-semibold"
             >
               Interviews
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              href="/charts"
               className=" underline underline-offset-4 hover:text-green-500 font-semibold"
             >
-              Q&A
-            </a>
+              Charts
+            </Link>
           </li>
 
           <li>
-            <a
-              href="#"
+            <Link
+              href="/innovations"
               className=" underline underline-offset-4 hover:text-green-500  font-semibold"
             >
-              Contact
-            </a>
+              Innovations
+            </Link>
+          </li>
+          <li>
+            <Link
+              target="_blank"
+              href="https://github.com/kdiffin/humanities-aa"
+              className=" underline flex items-center justify-center gap-1 underline-offset-4 hover:text-green-500  font-semibold"
+            >
+              Code <LinkIcon className="mt-1 " size={14} />
+            </Link>
           </li>
         </ul>
       </div>

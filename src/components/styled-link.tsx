@@ -6,13 +6,16 @@ function StyledLink({
   children,
   href,
   className,
+  target,
 }: {
   children: ReactNode;
   href: string;
   className?: string;
+  target?: string;
 }) {
   return (
     <Link
+      target={target}
       className={cn(
         "text-green-500 underline-offset-4 hover:underline",
         className

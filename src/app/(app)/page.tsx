@@ -11,16 +11,19 @@ import Link from "next/link";
 export default function Page() {
   return (
     <div className="">
-      <Navbar />
       <div className="justify-center items-center flex">
         <RainingLetters />
       </div>
 
-      <div className="grid w-full bg-background place-items-center">
+      <div className="grid w-full bg-background  place-items-center">
         <div>
           <MainText />
         </div>
-        <div className="grid  grid-cols-1  gap-4 w-full max-w-4xl">
+        <div
+          id="charts"
+          className="grid  grid-cols-1 mt-12  gap-4 w-full max-w-4xl"
+        >
+          <h2 className="text-2xl font-semibold mb-2 ">📊 General charts</h2>
           <ChartBar />
           <ChartArea />
           <ChartPie />
@@ -34,35 +37,77 @@ function MainText() {
   return (
     <div className="max-w-4xl mx-auto p-6 ">
       <h2 className="text-2xl font-semibold mb-4">
-        Understanding How Innovation Impacts Us
+        🧠 Understanding how innovation impacts us
       </h2>
       <p className="mb-4">
         Innovation has played a huge role in shaping the world we live in,
-        bringing both progress and challenges. This website attempts to give
-        insights on the opinions of the general populous on innovations through{" "}
-        <StyledLink href="/interviews">video interviews</StyledLink> and{" "}
-        <StyledLink href="/interviews">detailed graphs/charts</StyledLink>.
+        bringing both progress and challenges. <br /> This website attempts to
+        give insights on the opinions of the general populous on certain
+        featured{" "}
+        <StyledLink href="/innovations" className="text-blue-500">
+          innovations
+        </StyledLink>{" "}
+        through <StyledLink href="/interviews">video interviews</StyledLink> and{" "}
+        <StyledLink href="/charts">detailed graphs/charts</StyledLink>.
       </p>
-      <h2 className="text-xl font-semibold  mt-6 mb-2">📊 Our Goal</h2>
+
       <p className="mb-4">
         We’re interviewing people to get their thoughts on the effects of{" "}
         <StyledLink href="/innovations">innovations</StyledLink> in these
         fields:{" "}
       </p>
-      <ul className="list-disc pl-6 mb-6 space-y-2">
+      <ul className="list-disc pl-6 mb-4 space-y-2">
         <li>Azerbaijan’s oil industry (Azerbaijani History related)</li>
         <li>The pulp and paper industry (Geography related) </li>
         <li>The technological industry (World History / Everything related)</li>
       </ul>
-      <p>
+
+      <p className="mb-4">
         The results will be shown through{" "}
-        <StyledLink href="/graphs">interactive graphs</StyledLink> which either{" "}
-        <StyledLink href="#graphs" className="text-blue-500">
+        <StyledLink href="/charts">interactive graphs</StyledLink> which either{" "}
+        <StyledLink href="#charts" className="text-blue-500">
           show the overall consensus
         </StyledLink>{" "}
-        or are individual to the field in their own respective web page. helping
-        the viewers of this website percieve and ponder upon how people see
-        these advances.
+        of the featured innovations. This provides a very intuitive user
+        interface for research.
+      </p>
+
+      <p className="mb-8">
+        You might take the time to ask us... Why? Why take the time to build
+        this thing when there's{" "}
+        <Link
+          className="text-yellow-500 hover:underline underline-offset-4  "
+          target="_blank"
+          href={"https://www.merriam-webster.com/dictionary/gazillion"}
+        >
+          gazillions
+        </Link>{" "}
+        of sources on the internet already? Well...
+      </p>
+
+      <h2 className="text-xl font-semibold  mt-6 mb-2">📊 Our Goal</h2>
+      <p className="mb-2">
+        Our goal with this website is to facilitate thought in the viewers mind
+        about the pros, cons and general characteristics of the featured{" "}
+        <StyledLink href="/innovations" className="text-blue-500">
+          innovations.
+        </StyledLink>
+      </p>
+      <p className="mb-8">
+        This website was made to make people{" "}
+        <b className="text-yellow-500">think</b>. It has all the data and
+        resources in the same place to come to an{" "}
+        <Link
+          href="https://uk.indeed.com/career-advice/career-development/informed-decision"
+          target="_blank"
+          className="text-yellow-500 hover:underline underline-offset-4  "
+        >
+          informed decision
+        </Link>{" "}
+        <span className="italic text-muted-foreground">
+          (see article linked on how to make an informed decision)
+        </span>
+        .
       </p>
 
       <h2 className="text-xl font-semibold mt-6 mb-2">
