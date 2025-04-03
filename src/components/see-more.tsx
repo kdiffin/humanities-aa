@@ -15,7 +15,7 @@ function SeeMore() {
           <Button variant={"secondary"}>🗣️ Interviews</Button>
         </Link>
 
-        <Link href={"/Innovations"}>
+        <Link href={"/innovations"}>
           <Button variant={"outline"}>⚙️ Innovations</Button>
         </Link>
       </div>

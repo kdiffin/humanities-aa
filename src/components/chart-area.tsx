@@ -1,37 +1,49 @@
-"use client"
+"use client";
 
-import { TrendingUp } from "lucide-react"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
+import { Radar, TrendingUp } from "lucide-react";
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  type ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
-]
+  { category: "AI", positive: 9, negative: 1 },
+  { category: "Social Media", positive: 2, negative: 6 },
+  { category: "Technological Advancements", positive: 8, negative: 3 },
+  { category: "Military Tech", positive: 5, negative: 5 },
+];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  positive: {
+    label: "Positive Impact",
     color: "hsl(var(--chart-1))",
   },
-  mobile: {
-    label: "Mobile",
+  negative: {
+    label: "Negative Impact",
     color: "hsl(var(--chart-2))",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 export function ChartArea() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Area Chart - Stacked</CardTitle>
-        <CardDescription>Showing total visitors for the last 6 months</CardDescription>
+        <CardTitle>Impact of Innovations</CardTitle>
+        <CardDescription>
+          Survey results on modern technological influences
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -45,27 +57,29 @@ export function ChartArea() {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
+              dataKey="category"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
             />
-            <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="dot" />} />
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent indicator="dot" />}
+            />
             <Area
-              dataKey="mobile"
+              dataKey="positive"
               type="natural"
-              fill="var(--color-mobile)"
+              fill="var(--color-positive)"
               fillOpacity={0.4}
-              stroke="var(--color-mobile)"
+              stroke="var(--color-positive)"
               stackId="a"
             />
             <Area
-              dataKey="desktop"
+              dataKey="negative"
               type="natural"
-              fill="var(--color-desktop)"
+              fill="var(--color-negative)"
               fillOpacity={0.4}
-              stroke="var(--color-desktop)"
+              stroke="var(--color-negative)"
               stackId="a"
             />
           </AreaChart>
@@ -75,13 +89,11 @@ export function ChartArea() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 font-medium leading-none">
-              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+              Area graph of the insights from our interviews
             </div>
-            <div className="flex items-center gap-2 leading-none text-muted-foreground">January - June 2024</div>
           </div>
         </div>
       </CardFooter>
     </Card>
-  )
+  );
 }
-

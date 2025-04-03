@@ -21,12 +21,12 @@ export default function Page() {
         </div>
         <div
           id="charts"
-          className="grid  grid-cols-1 mt-12  gap-4 w-full max-w-4xl"
+          className="grid  grid-cols-1 mt-12 mb-12  gap-4 w-full max-w-4xl"
         >
           <h2 className="text-2xl font-semibold mb-2 ">📊 General charts</h2>
+          <ChartPie />
           <ChartBar />
           <ChartArea />
-          <ChartPie />
         </div>
       </div>
     </div>
@@ -53,23 +53,21 @@ function MainText() {
 
       <p className="mb-4">
         We’re interviewing people to get their thoughts on the effects of{" "}
-        <StyledLink href="/innovations">innovations</StyledLink> in these
-        fields:{" "}
+        <StyledLink href="/innovations">innovations</StyledLink> that affect
+        these fields:{" "}
       </p>
       <ul className="list-disc pl-6 mb-4 space-y-2">
-        <li>Azerbaijan’s oil industry (Azerbaijani History related)</li>
-        <li>The pulp and paper industry (Geography related) </li>
-        <li>The technological industry (World History / Everything related)</li>
+        <li>Azerbaijani history</li>
+        <li>Geography </li>
+        <li>World History</li>
       </ul>
 
       <p className="mb-4">
         The results will be shown through{" "}
-        <StyledLink href="/charts">interactive graphs</StyledLink> which either{" "}
-        <StyledLink href="#charts" className="text-blue-500">
-          show the overall consensus
-        </StyledLink>{" "}
-        of the featured innovations. This provides a very intuitive user
-        interface for research.
+        <StyledLink href="/charts">interactive graphs</StyledLink> which{" "}
+        <span className="text-blue-500">show the overall consensus</span> of the
+        featured innovations. This provides a very intuitive user interface for
+        research.
       </p>
 
       <p className="mb-8">
@@ -127,9 +125,6 @@ function MainText() {
           society,or do they come with a hefty price?
         </li>
       </ul>
-      <p className="mt-6 italic text-muted-foreground">
-        This website is still a work in progress and was made in 2 days. <br />
-      </p>
     </div>
   );
 }

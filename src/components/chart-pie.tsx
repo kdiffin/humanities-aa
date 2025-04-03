@@ -1,75 +1,130 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { TrendingUp } from "lucide-react"
-import { Label, Pie, PieChart } from "recharts"
+import * as React from "react";
+import { TrendingUp } from "lucide-react";
+import { Label, Pie, PieChart } from "recharts";
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  type ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
 
 const chartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 287, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 190, fill: "var(--color-other)" },
-]
+  { category: "AI & Education", visitors: 9, fill: "var(--color-ai)" },
+  {
+    category: "Social Media Influence",
+    visitors: 2,
+    fill: "var(--color-social-media)",
+  },
+  {
+    category: "Technological Advancements",
+    visitors: 8,
+    fill: "var(--color-tech)",
+  },
+  {
+    category: "Military Tech & Stability",
+    visitors: 5,
+    fill: "var(--color-military)",
+  },
+  {
+    category: "Innovations in Azerbaijan (Cars, Laptops)",
+    visitors: 7,
+    fill: "var(--color-innovation)",
+  },
+];
 
 const chartConfig = {
   visitors: {
     label: "Visitors",
   },
-  chrome: {
-    label: "Chrome",
+  ai: {
+    label: "AI & Education",
     color: "hsl(var(--chart-1))",
   },
-  safari: {
-    label: "Safari",
+  socialMedia: {
+    label: "Social Media Influence",
     color: "hsl(var(--chart-2))",
   },
-  firefox: {
-    label: "Firefox",
+  tech: {
+    label: "Technological Advancements",
     color: "hsl(var(--chart-3))",
   },
-  edge: {
-    label: "Edge",
+  military: {
+    label: "Military Tech & Stability",
     color: "hsl(var(--chart-4))",
   },
-  other: {
-    label: "Other",
+  innovation: {
+    label: "Innovations in Azerbaijan",
     color: "hsl(var(--chart-5))",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 export function ChartPie() {
   const totalVisitors = React.useMemo(() => {
-    return chartData.reduce((acc, curr) => acc + curr.visitors, 0)
-  }, [])
+    return chartData.reduce((acc, curr) => acc + curr.visitors, 0);
+  }, []);
 
   return (
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-0">
         <CardTitle>Pie Chart - Donut with Text</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardDescription>
+          Amount of positive reviews for the chosen innovations
+        </CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
-        <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[250px]">
+        <ChartContainer
+          config={chartConfig}
+          className="mx-auto aspect-square max-h-[250px]"
+        >
           <PieChart>
-            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-            <Pie data={chartData} dataKey="visitors" nameKey="browser" innerRadius={60} strokeWidth={5}>
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent hideLabel />}
+            />
+            <Pie
+              data={chartData}
+              dataKey="visitors"
+              nameKey="category"
+              innerRadius={60}
+              strokeWidth={5}
+            >
               <Label
                 content={({ viewBox }) => {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
                     return (
-                      <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
-                        <tspan x={viewBox.cx} y={viewBox.cy} className="fill-foreground text-3xl font-bold">
+                      <text
+                        x={viewBox.cx}
+                        y={viewBox.cy}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                      >
+                        <tspan
+                          x={viewBox.cx}
+                          y={viewBox.cy}
+                          className="fill-foreground text-3xl font-bold"
+                        >
                           {totalVisitors.toLocaleString()}
                         </tspan>
-                        <tspan x={viewBox.cx} y={(viewBox.cy || 0) + 24} className="fill-muted-foreground">
-                          Visitors
+                        <tspan
+                          x={viewBox.cx}
+                          y={(viewBox.cy || 0) + 24}
+                          className="fill-muted-foreground"
+                        >
+                          Positive reviews
                         </tspan>
                       </text>
-                    )
+                    );
                   }
                 }}
               />
@@ -78,12 +133,11 @@ export function ChartPie() {
         </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+        <div className="leading-none text-muted-foreground">
+          Reflecting opinions on the impact of innovation on Azerbaijani
+          history, Geography and World History
         </div>
-        <div className="leading-none text-muted-foreground">Showing total visitors for the last 6 months</div>
       </CardFooter>
     </Card>
-  )
+  );
 }
-

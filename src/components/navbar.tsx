@@ -18,7 +18,7 @@ function Navbar() {
           className="
           text-2xl font-bold"
         >
-          AA Humanities
+          AA humanities
         </Link>
 
         <ul className="flex  space-x-4">
