@@ -56,6 +56,15 @@ function Navbar() {
               Code <LinkIcon className="mt-1 " size={14} />
             </Link>
           </li>
+          <li>
+            <a
+              href="/aa-poster.pdf"
+              download="aa-poster.pdf"
+              className="underline flex items-center justify-center gap-1 underline-offset-4 hover:text-green-500 font-semibold"
+            >
+              Download Poster <LinkIcon className="mt-1" size={14} />
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
